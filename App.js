@@ -1,10 +1,11 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Image, TouchableOpacity} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 
 // Screen
-import {OnBoarding} from './screens/';
+import {OnBoarding, DestinationDetails} from './screens/';
 import {COLORS, icons, SIZES} from './constants';
 
 // Tabs
@@ -41,7 +42,6 @@ const App = () => {
                 <Image
                   source={icons.barMenu}
                   resizeMode="contain"
-                  // eslint-disable-next-line react-native/no-inline-styles
                   style={{
                     width: 25,
                     height: 25,
@@ -52,46 +52,50 @@ const App = () => {
           }}
         />
 
+        <Stack.Screen
+          name="DestinationDetails"
+          component={DestinationDetails}
+          options={{headerShown: false}}
+        />
+
         {/* Tabs */}
-        <Stack.Screen name="Home" component={Tabs} options={{
-          title: null,
-          headerStyle: {
-            backgroundColor: COLORS.white
-          },
-          headerLeft: ({onPress}) => (
-            <TouchableOpacity
-              style={{ marginLeft: SIZES.padding }}
-              onPress={onPress}
-            >
-            <Image
-              source={icons.back}
-              resizeMode='contain'
-              style={{
-                width: 25,
-                height: 25,
-              }}
-            />    
-            </TouchableOpacity>
-          ),
-          headerRight: () => (
-            <TouchableOpacity
-              style={{ marginRight: SIZES.padding }}
-              onPress={() => console.log("Menu")}
-            >
-              <Image
-                source={icons .menu}
-                resizeMode='contain'
-                style={{
-                  width: 25,
-                  height: 25,
-                }}
-              />
-            
-            </TouchableOpacity>
-          )
-
-
-          }} 
+        <Stack.Screen
+          name="Home"
+          component={Tabs}
+          options={{
+            title: null,
+            headerStyle: {
+              backgroundColor: COLORS.white,
+            },
+            headerLeft: ({onPress}) => (
+              <TouchableOpacity
+                style={{marginLeft: SIZES.padding}}
+                onPress={onPress}>
+                <Image
+                  source={icons.back}
+                  resizeMode="contain"
+                  style={{
+                    width: 25,
+                    height: 25,
+                  }}
+                />
+              </TouchableOpacity>
+            ),
+            headerRight: () => (
+              <TouchableOpacity
+                style={{marginRight: SIZES.padding}}
+                onPress={() => console.log('Menu')}>
+                <Image
+                  source={icons.menu}
+                  resizeMode="contain"
+                  style={{
+                    width: 25,
+                    height: 25,
+                  }}
+                />
+              </TouchableOpacity>
+            ),
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
