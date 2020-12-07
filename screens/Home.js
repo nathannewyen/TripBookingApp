@@ -9,7 +9,6 @@ import {
   FlatList,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-
 import {images, icons, COLORS, FONTS, SIZES} from '../constants';
 
 const OptionItem = ({bgColor, icon, label, onPress}) => {
@@ -143,7 +142,7 @@ const Home = ({navigation}) => {
             bgColor={['#46aeff', '#5884ff']}
             label="Flight"
             onPress={() => {
-              console.log('Flight');
+              navigation.navigate('Flight');
             }}
           />
           <OptionItem

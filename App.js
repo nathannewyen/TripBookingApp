@@ -5,7 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 
 // Screen
-import {OnBoarding, DestinationDetails} from './screens/';
+import {OnBoarding, DestinationDetails, Flight} from './screens/';
 import {COLORS, icons, SIZES} from './constants';
 
 // Tabs
@@ -38,7 +38,7 @@ const App = () => {
             headerRight: () => (
               <TouchableOpacity
                 style={{marginRight: SIZES.padding}}
-                onPress={() => console.log('Pressed')}>
+                onPress={() => console.log('Navbar')}>
                 <Image
                   source={icons.barMenu}
                   resizeMode="contain"
@@ -55,6 +55,12 @@ const App = () => {
         <Stack.Screen
           name="DestinationDetails"
           component={DestinationDetails}
+          options={{headerShown: false}}
+        />
+
+        <Stack.Screen
+          name="Flight"
+          component={Flight}
           options={{headerShown: false}}
         />
 
